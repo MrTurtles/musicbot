@@ -138,7 +138,7 @@ client.on('message', function (message) {
 
 client.on('ready', function () {
     console.log('I am ready!');
-    let login = ',play | U Music!'
+    let login = ',mhelp | U Music!'
   client.user.setGame(login, 'https://www.twitch.tv/roblox');
 client.user.setStatus('online');
 });
