@@ -30,7 +30,11 @@ const prefix = config.prefix;
 const discord_token = config.discord_token;
 
 var guilds = [];
-var commands = ["play", "skip", "queue"];
+var commands = [
+                "play", 
+                "skip", 
+                "queue"
+               ];
 
 //setTimeout(function () {
 client.login(process.env.BOT_TOKEN);
@@ -122,10 +126,10 @@ client.on('message', function (message) {
         message2 += "```";
         message.channel.send(message2).then(m => m.delete(20000));
     } else if (mess.startsWith(prefix + "mhelp")) {
-        message.author.sendEmbed(
-      new Discord.RichEmbed()
-      .setColor(0x00AB29D4)
-.addField('= Command List = ', `${commands}.join("\n")`));
+        message.delete()
+        message.channel.sendEmbed(new Discord.RichEmbed()
+           .setColor(0x00AB29D4)
+           .addField('= Command List = ', `${commands.join("\n")}`)).then(m => m.delete(10000));
     }
 
 });
