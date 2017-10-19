@@ -1,4 +1,4 @@
-var npm = require('npm');
+/*var npm = require('npm');
 npm.load(function(err) {
   // handle errors
 
@@ -11,7 +11,7 @@ npm.load(function(err) {
     // log installation progress
     console.log(message);
   });
-});
+});*/
 
 
 const Discord = require("discord.js");
@@ -31,9 +31,9 @@ const discord_token = config.discord_token;
 
 var guilds = [];
 
-setTimeout(function () {
-    client.login(process.env.BOT_TOKEN);
-}, 260000);
+//setTimeout(function () {
+client.login(process.env.BOT_TOKEN);
+//}, 260000);
 
 client.on('message', function (message) {
     const member = message.member;
