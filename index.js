@@ -1,3 +1,19 @@
+var npm = require('npm');
+npm.load(function(err) {
+  // handle errors
+
+  // install modules down below
+  npm.commands.install(['discord.js', 'opusscript', 'ytdl-core', 'request', 'fs', 'get-youtube-id', 'youtube-info', 'ffmpeg-binaries'], function(er, data) {
+    // log errors or data
+  });
+
+  npm.on('log', function(message) {
+    // log installation progress
+    console.log(message);
+  });
+});
+
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const ytdl = require("ytdl-core");
@@ -15,8 +31,9 @@ const discord_token = config.discord_token;
 
 var guilds = [];
 
-
-client.login(discord_token);
+setTimeout(function () {
+    client.login(discord_token);
+}, 260000);
 
 client.on('message', function (message) {
     const member = message.member;
