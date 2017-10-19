@@ -31,9 +31,9 @@ const discord_token = config.discord_token;
 
 var guilds = [];
 var commands = [
-                "play", 
-                "skip", 
-                "queue"
+                "- play", 
+                "- skip", 
+                "- queue"
                ];
 
 //setTimeout(function () {
