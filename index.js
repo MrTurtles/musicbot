@@ -135,8 +135,8 @@ client.on('message', function (message) {
         message.delete()
         message.channel.sendEmbed(new Discord.RichEmbed()
            .setColor(0x00AB29D4)
-           .addField('Creator', `Dave|MrTurtles#4907 - <@275303108589125633>`)).then(m => m.delete(10000))
-           .addField('Guilds present', `${client.guilds.array().length}`)).then(m => m.delete(10000))
+           .addField('Creator', `Dave|MrTurtles#4907 - <@275303108589125633>`).then(m => m.delete(10000))
+           .addField('Guilds present', `${client.guilds.array().length}`).then(m => m.delete(10000))
            .setThumbnail(client.user.avatarURL);
     }
 
