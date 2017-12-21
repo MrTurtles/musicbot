@@ -30,15 +30,9 @@ const prefix = config.prefix;
 const discord_token = config.discord_token;
 
 var guilds = [];
-var commands = [
-                "- play", 
-                "- skip", 
-                "- queue",
-                "- minfo"
-               ];
 
 //setTimeout(function () {
-client.login(process.env.BOT_TOKEN);
+client.login(discord_token);
 //}, 260000);
 
 client.on('message', function (message) {
@@ -75,6 +69,11 @@ client.on('message', function (message) {
         } else {
             isPlaying = true;
             getID(args, function (id) {
+                if(id === "s3Q80mk7bxE"){
+                     message.channel.sendEmbed(new Discord.RichEmbed()
+                    .setColor(0x00AB29D4)
+                    .addField(`Test`, `Test`)).then(m => m.delete(7000));
+                }else{
                 guilds[message.guild.id].queue.push(id);
                 playMusic(id, message);
                 fetchVideoInfo(id, function (err, videoInfo) {
@@ -84,6 +83,7 @@ client.on('message', function (message) {
                     .setColor(0x00AB29D4)
                     .addField(`Now Playing! :headphones:`, `**${videoInfo.title}**`)).then(m => m.delete(7000));
                 });
+            }
             });
           }
         } else {
@@ -126,18 +126,6 @@ client.on('message', function (message) {
         }
         message2 += "```";
         message.channel.send(message2).then(m => m.delete(20000));
-    } else if (mess.startsWith(prefix + "mhelp")) {
-        message.delete()
-        message.channel.sendEmbed(new Discord.RichEmbed()
-           .setColor(0x00AB29D4)
-           .addField('= Command List = ', `${commands.join("\n")}`)).then(m => m.delete(10000));
-    } else if (mess.startsWith(prefix + "minfo")) {
-        message.delete()
-        message.channel.sendEmbed(new Discord.RichEmbed()
-           .setColor(0x00AB29D4)
-           .addField('Creator', `Dave|MrTurtles#4907 - <@275303108589125633>`)
-           .addField('Guilds present', `${client.guilds.array().length}`)
-           .setThumbnail(client.user.avatarURL)).then(m => m.delete(10000));
     }
 
 });
@@ -146,9 +134,9 @@ client.on('message', function (message) {
 
 client.on('ready', function () {
     console.log('I am ready!');
-    let login = ',mhelp | U Music!'
-  client.user.setGame(login, 'https://www.twitch.tv/roblox');
-client.user.setStatus('online');
+    let login = ',play | U Music!'
+    client.user.setGame(login, 'https://www.twitch.tv/roblox');
+    client.user.setStatus('online');
 });
 
 function skip_song(message) {
