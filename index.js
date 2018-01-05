@@ -104,7 +104,7 @@ client.on('message', function (message) {
             } else {
                 message.channel.sendEmbed(new Discord.RichEmbed()
                     .setColor(0x00AB29D4)
-                    .addField(`Sorry!`, `There **${Math.ceil((guilds[message.guild.id].voiceChannel.members.size - 1) / 2) - guilds[message.guild.id].skipReq}** more skip requests needed!`));
+                    .addField(`Sorry!`, `There **${Math.ceil((guilds[message.guild.id].voiceChannel.members.size - 1) / 2) - guilds[message.guild.id].skipReq}** more skip requests needed!`)).then(m => m.delete(7000));
             }
         } else {
             message.channel.sendEmbed(new Discord.RichEmbed()
