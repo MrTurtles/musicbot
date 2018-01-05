@@ -53,7 +53,7 @@ client.on('message', function (message) {
     }
 
     if (mess.startsWith(prefix + "play")) {
-        message.delete();
+        message.delete(3000);
         if (message.member.voiceChannel || guilds[message.guild.id].voiceChannel != null) {
         if (guilds[message.guild.id].queue.length > 0 || guilds[message.guild.id].isPlaying) {
             getID(args, function (id) {
@@ -92,7 +92,7 @@ client.on('message', function (message) {
                     .addField(`Hold on! :no_entry:`, `You're not in a voice channel!`)).then(m => m.delete(7000));
         }
     } else if (mess.startsWith(prefix + "skip")) {
-        message.delete();
+        message.delete(3000);
         if (guilds[message.guild.id].skippers.indexOf(message.author.id) === -1) {
             guilds[message.guild.id].skippers.push(message.author.id);
             guilds[message.guild.id].skipReq++;
@@ -112,7 +112,7 @@ client.on('message', function (message) {
                     .addField(`:smile: Sorry`, `You already voted to skip!`)).then(m => m.delete(7000));
         }
     } else if (mess.startsWith(prefix + "queue")) {
-        message.delete();
+        message.delete(3000);
         var message2 = "```";
         for (var i = 0; i < guilds[message.guild.id].queueNames.length; i++) {
             var temp = (i + 1) + ": " + guilds[message.guild.id].queueNames[i] + (i === 0 ? "**(Current Song)**" : "") + "\n";
@@ -127,13 +127,13 @@ client.on('message', function (message) {
         message2 += "```";
         message.channel.send(message2).then(m => m.delete(20000));
     } else if (mess.startsWith("m" + prefix + "info")) {
-        message.delete();
+        message.delete(3000);
         message.channel.sendEmbed(new Discord.RichEmbed()
            .setColor(0x00AB29D4)
            .addField(`Author/Creator`, `DaveMrTurtles#4907 - <@275303108589125633>`)
            .addField(`Commands`, `Use/type m,help`)).then(m => m.delete(7000));
     } else if (mess.startsWith("m" + prefix + "help")) {
-        message.delete();
+        message.delete(3000);
         message.channel.sendEmbed(new Discord.RichEmbed()
            .setColor(0x00AB29D4)
            .addField(`Commands`, `- play\n- queue\n- skip\n- info\n- help`)).then(m => m.delete(7000));
