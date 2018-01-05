@@ -126,7 +126,7 @@ client.on('message', function (message) {
         }
         message2 += "```";
         message.channel.send(message2).then(m => m.delete(20000));
-    } else if (mess.startsWith("m" + prefix + "credits")) {
+    } else if (mess.startsWith("m" + prefix + "info")) {
         message.delete();
         message.channel.sendEmbed(new Discord.RichEmbed()
            .setColor(0x00AB29D4)
