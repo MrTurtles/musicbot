@@ -32,7 +32,7 @@ const discord_token = config.discord_token;
 var guilds = [];
 
 //setTimeout(function () {
-client.login(discord_token);
+client.login(process.ENV.BOT_TOKEN);
 //}, 260000);
 
 client.on('message', function (message) {
