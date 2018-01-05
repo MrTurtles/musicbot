@@ -72,7 +72,7 @@ client.on('message', function (message) {
                 if(id === "s3Q80mk7bxE"){
                      message.channel.sendEmbed(new Discord.RichEmbed()
                     .setColor(0x00AB29D4)
-                    .addField(`Test`, `Test`)).then(m => m.delete(7000));
+                    .addField(`❌ Error ❌`, `Couldn't read that!`)).then(m => m.delete(7000));
                 }else{
                 guilds[message.guild.id].queue.push(id);
                 playMusic(id, message);
