@@ -24,7 +24,7 @@ const fetchVideoInfo = require("youtube-info");
 
 var config = JSON.parse(fs.readFileSync('./settings.json', 'utf-8'));
 
-const yt_api_key = "AIzaSyAcajQzJ_dUtN-grLvBiAVgEhz6suiKEr8";
+const yt_api_key = " AIzaSyBR1XT3PJbRSQqGy-Tqgx0UaHGRzxzkU18";
 const bot_controller = "296639091343360010";
 const prefix = ",";
 const discord_token = config.discord_token;
